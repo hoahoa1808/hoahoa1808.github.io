@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Countdown</title>
+    <style>
+        /* Add your custom CSS styles here */
+        #love-text {
+            font-size: 24px;
+            text-align: center;
+            animation: slide 10s linear infinite;
+            color:rgb(241, 4, 202)
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Display the animated love text -->
+    <p id="love-text"></p>
+
+    <script>
+        // Set the target date (January 2, 2024)
+        const targetDate = new Date("2024-01-02").getTime();
+
+        // Update the love text every second
+        const updateLoveText = () => {
+            const now = new Date().getTime();
+            const elapsedMilliseconds = now - targetDate;
+            const days = Math.floor(elapsedMilliseconds / (24 * 3600 * 1000));
+
+            document.getElementById("love-text").innerHTML = `HELLO, WE ARE IN LOVE ${days} days`;
+        };
+
+        // Initial call to update the love text
+        updateLoveText();
+
+        // Update the text every second
+        setInterval(updateLoveText, 1000);
+    </script>
+</body>
+</html>
