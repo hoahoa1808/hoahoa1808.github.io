@@ -26,7 +26,7 @@
         async function getChatCompletion(question) {
             k ="sk-"+ k1+k2+k3+k4+k5;
 
-            let question_tmp = "You are a helpful education asistant, please kindly help a student answer her question. If the question is simple or greeting, you should reply quickly while try to answer STEP-BY-STEP as comprehensive as possible if the question ask information or knowledge or an explanation. Then always return informat main points, subpoints. Please separate parapgrahp or list by `\\n`. \n You can read the chat history to identify her concern. \n\n"
+            let question_tmp = "You are a helpful education asistant, please kindly help a student answer her question. . \n You can read the chat history to identify her concern. \n\n"
             question_tmp += "=========CHAT HISTORY=====\n"
 
             historychat.forEach(entry => {
@@ -44,9 +44,8 @@
                     'Authorization': `Bearer ${k}`
                 },
                 body: JSON.stringify({
-                    model: 'gpt-4o-mini',
-                    messages: [{ role: 'user', content: question_tmp }],
-                    temperature: 0.7
+                    model: 'o3-mini',
+                    messages: [{ role: 'user', content: question_tmp }]
                 })
             });
 
